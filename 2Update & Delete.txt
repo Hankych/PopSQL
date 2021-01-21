@@ -1,0 +1,35 @@
+SELECT * FROM student;
+
+--  Update all the majors named "Computer Science" to "Com Sci" 
+-- in the student table
+UPDATE student
+SET major = 'Com Sci'
+WHERE major = 'Computer Science';
+
+-- Update the major of the studnet with an id of 5
+-- from whichever major to 'Pharmacy'
+UPDATE student
+Set major = 'Pharmacy'
+WHERE student_id = 5;
+
+-- Update student majors 'Com Sci' and 'AFM' BOTH to 'CFM'
+UPDATE student
+SET major = 'CFM'
+WHERE major = 'Com Sci' OR major = 'AFM';
+
+--SET ALL MAJORS TO UNDECIDED
+UPDATE student
+SET major = 'undecided';
+
+-- Deletes all the rows in the student table
+DELETE FROM student;
+
+-- Deletes the student row where the id is 5
+DELETE FROM student WHERE student_id = 5;
+
+-- Deletes the student with the name 'Dora' AND the major 'dentistry'
+DELETE FROM student
+WHERE name = 'dOrA' AND major = 'denTIstRy'; --Upper/Lower Cases don't matter
+
+
+

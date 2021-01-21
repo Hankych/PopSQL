@@ -1,0 +1,25 @@
+-- Delete a row with foreign key associated with another table
+
+-- Refer back to Company Database Creation
+
+-- ON DELETE SET NULL
+    -- when Michael Scott is deleted from the employee table
+    -- Other tables that refer to his emp_id as a foreign key
+    -- Will have to set where the id "102" appear as NULL
+    -- Branch Table's mgr_id refers to Employee Tables' emp_id
+    -- Whichever branch with the mgr_id of 102 will have
+    -- their manager id set to NULL after Michael Scott is deleted
+
+-- ON DELETE CASCADE
+    -- When Michael Scott is deleted from the employee table
+    -- Other tables that refer to his emp_id as a foreign key
+    -- Will have specific rows deleted completely
+    -- Works_With Table's emp_id refers to Employee Table's emp_id
+    -- Whichever Works_With ROW with the emp_id of 102 will have
+    -- the row deleted after Michael Scott is deleted
+
+
+DELETE FROM employee
+WHERE emp_id = 102;
+
+SHOW TABLES; -- Show the list of all tables in the database

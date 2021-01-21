@@ -1,0 +1,45 @@
+CREATE TABLE student(
+    student_id INT,
+    name VARCHAR(20),
+    major VARCHAR(20),
+    PRIMARY KEY(student_id)
+);
+
+DESCRIBE student; --Display the table in "Data" section
+-- I think this only describes the STRUCTURE of the table
+-- DOES NOT INLCUDE THE ACTUAL DATA IN THE TABLE
+
+DROP TABLE student; --Delete Table
+
+-- Add a gpa Column in TABLE student storing DECIMALs with 3 total digits && 2 decimals
+ALTER TABLE student ADD gpa DECIMAL(3,2); 
+
+-- Delete the gpa Column in TABLE student
+ALTER TABLE student DROP COLUMN gpa;
+
+SELECT * FROM student; --Get all the information from the student table
+
+-- HAVE TO insert the values accordingly to how you created the table
+INSERT INTO student VALUES(1, 'Hank', 'Computer Science');
+INSERT INTO student VALUES(2, 'Jenn', 'AFM');
+
+-- Insert data DESPITE NOT HAVING ALL THE ATTRIBUTES/PARAMETERS KINDA
+-- First BRACKETS specified what attributes I actually have
+INSERT INTO student(student_id, name) VALUES(3, 'Stephanie');
+INSERT INTO student VALUES(4, 'Myra', 'Art');
+INSERT INTO student VALUES(5, 'Dora', 'Dentistry');
+
+
+-- Create a student table with CONSTRAINTS (specific requirements)
+CREATE TABLE student(
+    -- student id gets assigned by increment
+    -- First one starts at 1 automatically
+    student_id INT AUTO_INCREMENT, 
+
+    name VARCHAR(20) NOT NULL, -- Entry for name CANNOT be NULL
+
+    -- Entry for major CANNOT have duplicates
+    -- If entry for major is NULL, store the value as 'undecided'
+    major VARCHAR(20) UNIQUE DEFAULT 'undecided', 
+    PRIMARY KEY(student_id)
+);

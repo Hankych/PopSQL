@@ -1,0 +1,56 @@
+SELECT *      -- Astrik means we want to grab EVERYTHING (Everyone Column)
+FROM student;
+
+-- Only get name column
+SELECT name
+FROM student;
+
+-- Gets both name and major columns
+-- student.name && student.major  WORKS TOOOOOO
+SELECT name, major 
+FROM student
+ORDER BY name; -- List students in alphabetical order (Ascending by default)
+
+SELECT name, major 
+FROM student
+ORDER BY name DESC; -- Desending alphabetical order
+
+SELECT *
+FROM student                                -- Ascending by default
+ORDER BY student_id DESC; -- List students in descending student id 
+
+SELECT*
+FROM student
+ORDER BY major, student_id DESC; 
+-- Sort by major alphabet first, but if the same major, sort by student_id
+
+
+-- THIS SELECTION DOES NOT GO BY THE ORDER YOU ENDED WITH ABOVE
+-- IT GOES WITH HOWEVER THE TABLE WAS ORIGINALLY CREATED/DATA INSERTED
+SELECT*
+FROM student
+LIMIT 2; -- Limit to have ONLY 2 ROWS/STUDENTS
+
+-- Select students with major 'Computer Science' or 'AFM'
+SELECT*
+FROM student
+WHERE major = 'Computer Science' OR major = 'AFM';
+
+-- <, >, <=, >=, =, AND, OR, <> THIS IS != (NOT EQUAL)
+
+-- Select students with major THAT'S NOT 'Computer Science'
+SELECT*
+FROM student
+WHERE major <> 'Computer Science'; -- Does not display "NULL" major for some reason
+
+-- Select students with id of equal or less than 3 BUT NOT WITH THE NAME 'Hank'
+SELECT *
+FROM student
+WHERE student_id <=3 AND name <> 'Hank';
+
+-- Select studnets that have the names of either 'Stephanie' 'Jenn' or 'Myra'
+SELECT *
+FROM student
+WHERE name IN ('Stephanie', 'Jenn', 'Myra');
+
+
